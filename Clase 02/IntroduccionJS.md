@@ -1,7 +1,3 @@
-Aquí tienes un archivo `README.md` en español para una introducción a JavaScript. Incluye conceptos básicos y una guía para crear la primera función en JavaScript.
-
----
-
 # Introducción a JavaScript
 
 JavaScript es un lenguaje de programación que permite añadir interactividad y funcionalidades avanzadas a las páginas web. Junto con HTML y CSS, JavaScript es uno de los pilares del desarrollo web, permitiendo manipular contenido, realizar cálculos y responder a acciones de los usuarios.
