@@ -1,7 +1,3 @@
-Aquí tienes un archivo `README.md` en español que explica detalladamente qué son los arrays en JavaScript, las operaciones comunes que puedes realizar con ellos, y algunos ejercicios para practicar.
-
----
-
 # Introducción a Arrays en JavaScript
 
 En JavaScript, un **array** (o **arreglo**) es una estructura de datos que permite almacenar una lista de elementos en una sola variable. Los arrays son útiles para almacenar colecciones de datos relacionados y ofrecen una variedad de métodos para manipular estos datos de forma eficiente.
@@ -140,3 +136,5 @@ console.log(primero); // "rojo"
 8. Usa `reduce` para encontrar el total de puntos en un array de puntajes.
 9. Remueve el primer y último elemento de un array de colores.
 10. Verifica si el array de números contiene el número 10.
+
+[Codewars - Mejora tus habilidades de programación](https://www.codewars.com/)

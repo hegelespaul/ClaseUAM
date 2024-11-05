@@ -1,7 +1,3 @@
-Aquí tienes un archivo `README.md` en español que introduce CSS Flexbox y explica sus propiedades principales para crear diseños flexibles y responsivos. También se incluyen ejemplos prácticos.
-
----
-
 # Introducción a CSS Flexbox
 
 CSS **Flexbox** (Flexible Box) es un sistema de diseño unidimensional que permite crear estructuras flexibles y adaptativas en una página web. Con Flexbox, puedes alinear elementos de manera horizontal o vertical, distribuir espacio entre ellos y hacer que respondan al tamaño de la pantalla.
@@ -194,3 +190,5 @@ Permite cambiar el **orden** de los elementos en el contenedor sin modificar el 
   text-align: center;
 }
 ```
+
+[Flexbox Froggy - Aprende Flexbox jugando](https://flexboxfroggy.com/#es)

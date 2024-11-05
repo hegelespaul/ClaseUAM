@@ -1,7 +1,3 @@
-Aquí tienes un archivo `README.md` en español que explica cómo funciona la programación web y proporciona una guía para crear una página web sencilla. Esta guía incluye una introducción a HTML, CSS y JavaScript.
-
----
-
 # Introducción a la Programación Web
 
 La programación web consiste en el desarrollo de sitios y aplicaciones que funcionan en navegadores, permitiendo a los usuarios interactuar con contenido en línea. Los tres lenguajes fundamentales para crear una página web son **HTML**, **CSS** y **JavaScript**:

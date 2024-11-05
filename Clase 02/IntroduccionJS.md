@@ -114,8 +114,3 @@ Para probarlo, abre `index.html` en un navegador y haz clic en el botón. Deber�
 
    Aquí, `sumar(3, 4)` devuelve 7, que se almacena en la variable `resultado`.
 
-## Resumen
-
-Este archivo `README.md` te ofrece una introducción básica a JavaScript y una guía paso a paso para crear tu primera función. Practicar la creación y uso de funciones te ayudará a desarrollar las bases para construir páginas web dinámicas e interactivas.
-
-¡Buena suerte aprendiendo JavaScript!

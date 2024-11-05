@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grabador de Medios</title>
+  <link rel="stylesheet" href="Media.css" />
+
+</head>
+<body>
+  <h1>Grabar Audio y Video</h1>
+  
+  <label for="title">Título:</label>
+  <input type="text" id="title" placeholder="Introduce el título del medio">
+  
+  <label for="description">Descripción:</label>
+  <textarea id="description" placeholder="Introduce una descripción"></textarea>
+  
+  <button id="start">Iniciar Grabación</button>
+  <button id="stop" disabled>Detener Grabación</button>
+  
+  <video id="preview" controls autoplay></video>
+  
+  <script src="Media.js"></script>
+</body>
+</html>
