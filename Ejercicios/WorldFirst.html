@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World First Collaborative Sentence</title>
+</head>
+
+<body>
+    <section clas="encabezado">
+        <h1>Bienvenido a la primera frase colabortiva del mundo</h1>
+        <h3>Por favor, ingresa en el formulario el texto a añadir a la frase</h3>
+    </section class="formulario">
+    <section>
+        <form id="formulario"></form>
+        <input type="text" id="textoFormulario" value="Ingresa tu Texto"> 
+        <button onclick="writeJSONData(document.getElementById('textoFormulario').value)">Presiona para ingresar</button>
+    </section>
+    <section id="texto">
+    </section>
+
+    <script src="WolrdFirst.js"></script>
+</body>
+
+</html>

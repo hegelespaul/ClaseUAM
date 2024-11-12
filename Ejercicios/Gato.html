@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Gato</title>
+    <link rel="stylesheet" type="text/css" href="Gato.css">
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.freepik.com/256/6988/6988878.png?semt=ais_hybrid">
+</head>
+
+<body>
+    <h1>Este es un juego de gato, da click y comienza a jugar</h1>
+    </br>
+    <div id="tablero">
+        <section id="areaJuego">
+            <div class="casilla vacia" id="uno" onclick="clickCasilla('uno')"></div>
+            <div class="casilla vacia" id="dos" onclick="clickCasilla('dos')"></div>
+            <div class="casilla vacia" id="tres" onclick="clickCasilla('tres')"></div>
+            <div class="casilla vacia" id="cuatro" onclick="clickCasilla('cuatro')"></div>
+            <div class="casilla vacia" id="cinco" onclick="clickCasilla('cinco')"></div>
+            <div class="casilla vacia" id="seis" onclick="clickCasilla('seis')"></div>
+            <div class="casilla vacia" id="siete" onclick="clickCasilla('siete')"></div>
+            <div class="casilla vacia" id="ocho" onclick="clickCasilla('ocho')"></div>
+            <div class="casilla vacia" id="nueve" onclick="clickCasilla('nueve')"></div>
+        </section>
+        <svg id='esvg' width="50%" height="612px">
+            <line id="line" stroke="red" stroke-width="5" />
+        </svg>
+    </div>
+    <button id="Button">Reinicia el juego</button>
+    <p id="resultado"></p>
+
+    <script src="Gato.js"></script>
+</body>
+
+</html>
