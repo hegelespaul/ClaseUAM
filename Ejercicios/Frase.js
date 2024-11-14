@@ -38,7 +38,7 @@ const texto = [
     "presente, sintiendo, experimentando, enfrentando la vida en toda su complejidad."
 ];
 
-// let elem = document.documentElement;
+let elem = document.documentElement;
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
@@ -58,7 +58,7 @@ function getRandomColor() {
 }
 
 function getRandomFontSize() {
-    return getRandomInt(12, 36) + "px"; // Tamaño de fuente entre 12px y 36px
+    return getRandomInt(12, 36) + "px"; 
 }
 
 function getRandomFontFamily() {
