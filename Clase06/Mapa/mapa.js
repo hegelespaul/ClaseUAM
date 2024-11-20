@@ -17,7 +17,7 @@ L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{
 }).addTo(map);
 
 
-fetch('/map.json')
+fetch('map.json')
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
