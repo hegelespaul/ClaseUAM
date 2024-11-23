@@ -3,27 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Repository File List</title>
+    <title>Repository Contents</title>
     <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #3b3b3b;
+            padding: 20px;
+            background-color: #1e88e5;
+            margin: 0;
+            color: white;
+        }
+
+        /* List Styles */
         ul {
             list-style-type: none;
             padding-left: 20px;
+            margin-left: 0;
         }
+
         li {
-            padding: 5px;
-            font-size: 18px;
+            padding: 8px;
+            font-size: 16px;
+            margin-bottom: 5px;
+            transition: all 0.3s ease;
         }
-        li a {
-            text-decoration: none;
+
+        /* Hover effect for files and folders */
+        li:hover {
+            background-color: #e1f5fe;
+            cursor: pointer;
         }
+
+        /* Styling for folder links */
         .folder {
             font-weight: bold;
+            color: #1e88e5;
         }
+
+        /* Styling for file links */
+        a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            display: inline-block;
+        }
+
+        /* Styling for file hover */
+        a:hover {
+            color: #01579b;
+        }
+
+        /* Collapsible Folders */
+        .folder + ul {
+            display: none;
+            margin-left: 20px;
+            padding-left: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Toggle visibility when folder is expanded */
+        .folder.expanded + ul {
+            display: block;
+        }
+
+        /* Animation for folder toggle */
+        .folder:after {
+            content: ' ▼';
+            font-size: 12px;
+            color: #555;
+        }
+
+        .folder.expanded:after {
+            content: ' ▲';
+        }
+
+        /* Styling for the list items in the folder */
+        li > a {
+            padding-left: 10px;
+        }
+
+        /* Responsive design adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 18px;
+                padding: 15px;
+            }
+
+            li {
+                font-size: 14px;
+            }
+
+            ul {
+                padding-left: 15px;
+            }
+        }
+
     </style>
 </head>
 <body>
 
-<h1>Repository Contents</h1>
+<h1>Contenidos</h1>
 
 <ul id="fileList"></ul>
 
@@ -32,23 +121,42 @@
     const repoName = 'ClaseUAM'; // Replace with your GitHub repository name
 
     // Function to fetch and display the content of a directory
-    function fetchRepoContents(path = '') {
+    function fetchRepoContents(path = '', parentList = null) {
         fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${path}`)
             .then(response => response.json())
             .then(data => {
-                const fileList = document.getElementById('fileList');
+                const fileList = parentList || document.getElementById('fileList');  // If a parent list is passed, use it
                 data.forEach(item => {
                     const li = document.createElement('li');
                     const a = document.createElement('a');
-                    a.textContent = item.name;
+                    
+                    if (item.name !== 'index.html') {
+                        a.textContent = item.name;
+                    }
 
-                    if (item.type === 'file') {
+                    // Check if it's an HTML file and modify the URL accordingly
+                    if (item.type === 'file' && item.name.endsWith('.html')) {
+                        const htmlUrl = `https://hegelespaul.github.io/${repoName}/${item.path}`;
+                        a.href = htmlUrl;  // GitHub Pages URL for HTML files
+                        a.target = '_blank'; // Open in a new tab/window
+                    } else if (item.type === 'file') {
                         a.href = item.html_url; // Link to the file's raw content
+                        a.target = '_blank'; // Open in a new tab/window
                     } else if (item.type === 'dir') {
                         a.href = '#';
                         a.classList.add('folder');
                         a.onclick = function() {
-                            fetchRepoContents(item.path); // Fetch the contents of the folder when clicked
+                            const subList = li.querySelector('ul');
+                            // Check if the folder is already expanded
+                            if (subList) {
+                                subList.classList.toggle('hidden'); // Toggle visibility
+                                a.classList.toggle('expanded');
+                            } else {
+                                const newSubList = document.createElement('ul');
+                                li.appendChild(newSubList);
+                                fetchRepoContents(item.path, newSubList); // Fetch the contents of the folder
+                                a.classList.add('expanded'); // Mark it as expanded
+                            }
                         };
                     }
 
