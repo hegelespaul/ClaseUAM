@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repository File List</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        li {
+            padding: 5px;
+            font-size: 18px;
+        }
+        li a {
+            text-decoration: none;
+        }
+        .folder {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Repository Contents</h1>
+
+<ul id="fileList"></ul>
+
+<script>
+    const repoOwner = 'hegelespaul'; // Replace with your GitHub username
+    const repoName = 'ClaseUAM'; // Replace with your GitHub repository name
+
+    // Function to fetch and display the content of a directory
+    function fetchRepoContents(path = '') {
+        fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${path}`)
+            .then(response => response.json())
+            .then(data => {
+                const fileList = document.getElementById('fileList');
+                data.forEach(item => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.textContent = item.name;
+
+                    if (item.type === 'file') {
+                        a.href = item.html_url; // Link to the file's raw content
+                    } else if (item.type === 'dir') {
+                        a.href = '#';
+                        a.classList.add('folder');
+                        a.onclick = function() {
+                            fetchRepoContents(item.path); // Fetch the contents of the folder when clicked
+                        };
+                    }
+
+                    li.appendChild(a);
+                    fileList.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching repository contents:', error);
+            });
+    }
+
+    // Initial call to fetch the root directory contents
+    fetchRepoContents();
+</script>
+
+</body>
+</html>
