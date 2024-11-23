@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Mapeo 3D</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="https://www.ler.uam.mx/microcbi/wp-content/uploads/2023/09/UAML.png" type="image/png">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+
+</head>
+
+<body>
+  <div class="bienvenida">
+    <h1>Mapeo 3D</h1>
+
+    <p>Este ejercicio consiste en un mapeo 3D. <br>En el siguiente lienzo se incluye el modelo (mesh) de un bloque de la
+      Ciudad de México que contiene el munmento d el Ángel de la Independencia.<br> El
+      modelo fue extraído de Google Maps e integrado a la web utilizando Three.js, una librería de JavaScript para la
+      creación de elementos 3D.<br> Además, se programaron figuras, texturas e interactividad, permitiendo que al hacer
+      clic en el rectángulo rojo que engloba el monumento, se muestre una capa *div* con un video.</p>
+  </div>
+  <section>
+    <canvas id="glbCanvas"></canvas>
+
+    <div id="popup">
+      <div class="header">
+        <button class="close-btn">&times;</button>
+        <span id="popup-title">Ángel de la Independencia</span>
+      </div>
+      <div class="content">
+        <p id="popup-description">Ve de cerca este emblemático monumento!</p>
+        <video
+          src="https://media.istockphoto.com/id/1068586970/es/v%C3%ADdeo/vista-a%C3%A9rea-de-la-ciudad-de-m%C3%A9xico.mp4?s=mp4-640x640-is&k=20&c=j1OO0_1aT-oDkHQ4teGAMRTqXiVkwVt_8x3kN4Nhh2c="
+          autoplay style="width: 100%; height: 100%; object-fit: cover; border: none;" loop controls></video>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js" type="module"></script>
+</body>
+
+</html>

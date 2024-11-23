@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Meta etiquetas para mejorar la accesibilidad y el rendimiento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Un mapa interactivo usando Leaflet.js">
+    <meta name="author" content="Hegel Pedroza">
+    
+    <!-- Conexión optimizada para Leaflet -->
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
+    
+    <!-- Hoja de estilos personalizada -->
+    <link rel="stylesheet" href="mapa.css" />
+
+    <!-- Título de la página -->
+    <title>Mi Primer Mapa Interactivo</title>
+    
+    <!-- Agregar icono de la página (opcional) -->
+    <link rel="icon" href="https://www.ler.uam.mx/microcbi/wp-content/uploads/2023/09/UAML.png" type="image/png">
+    
+    <!-- Etiquetas para optimizar el rendimiento -->
+    <link rel="dns-prefetch" href="https://unpkg.com">
+</head>
+
+<body>
+    <!-- Título principal de la página -->
+    <header>
+        <h1>MI PRIMER MAPA INTERACTIVO</h1>
+    </header>
+
+    <!-- Contenedor para el mapa -->
+    <div id="mapa"></div>
+
+    <!-- Script JS de Leaflet y tu archivo JS personalizado -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous" defer></script>
+    <script type="module" src="mapa.js" defer></script>
+</body>
+
+</html>

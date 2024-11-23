@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario con Mapa</title>
+  <!-- Estilo para el mapa -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 400px;
+      margin-top: 20px;
+    }
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center;">Formulario con Mapa Interactivo</h1>
+  <form id="data-form">
+    <label for="title">Título:</label>
+    <input type="text" id="title" name="title" required />
+
+    <label for="description">Descripción:</label>
+    <textarea id="description" name="description" rows="4" required></textarea>
+
+    <div id="map"></div>
+
+    <button type="button" id="save-button">Guardar Datos</button>
+  </form>
+
+  <!-- Scripts necesarios -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Variables para almacenar los datos
+    let title = "";
+    let description = "";
+    let latitude = null;
+    let longitude = null;
+    const dataDict = {};
+
+    // Inicializar el mapa
+    const map = L.map('map').setView([0, 0], 2); // Mapa centrado en coordenadas globales
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Agregar marcador al mapa
+    let marker;
+    map.on('click', function (e) {
+      latitude = e.latlng.lat;
+      longitude = e.latlng.lng;
+
+      if (marker) {
+        map.removeLayer(marker);
+      }
+      marker = L.marker([latitude, longitude]).addTo(map)
+        .bindPopup(`Lat: ${latitude.toFixed(6)}, Lng: ${longitude.toFixed(6)}`)
+        .openPopup();
+    });
+
+    // Guardar datos en variables y diccionario
+    document.getElementById('save-button').addEventListener('click', () => {
+      title = document.getElementById('title').value;
+      description = document.getElementById('description').value;
+
+      if (!latitude || !longitude) {
+        alert("Por favor, selecciona un punto en el mapa.");
+        return;
+      }
+
+      // Agregar datos al diccionario
+      const newEntry = {
+        title: title,
+        description: description,
+        latitude: latitude,
+        longitude: longitude,
+      };
+      console.log("Datos guardados:", newEntry);
+      alert("Datos guardados exitosamente.");
+    });
+  </script>
+</body>
+</html>
