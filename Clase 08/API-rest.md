@@ -23,8 +23,8 @@ Antes de comenzar, asegúrate de tener instalado:
 **CORS** (Cross-Origin Resource Sharing) es una política de seguridad de los navegadores que restringe cómo las páginas web pueden hacer peticiones a un servidor que está en un dominio diferente al de la página web que lo solicita. Esto es necesario para este ejemplo en donde aún no damos un orign a nuestra app de Express y únicamente vinculamos peticiones desde un .html
 2. **Instala CORS**:
    ```bash
-npm install cors
-    ```
+   npm install cors
+   ```
 ## Paso 3: Crear el Servidor Básico
 Crea un archivo `server.js` en el directorio de tu proyecto y agrega lo siguiente:
 ```js
