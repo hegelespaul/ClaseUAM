@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API RESTful con Node.js</title>
+</head>
+<body>
+    <h1>Interacción con el API</h1>
+    <button onclick="getUsuarios()">Obtener Usuarios</button>
+    <button onclick="crearUsuario()">Crear Usuario</button>
+    <button onclick="actualizarUsuario()">Actualizar Usuario</button>
+    <button onclick="eliminarUsuario()">Eliminar Usuario</button>
+    <div id="usuarios"></div>
+    <script>
+        // Función para obtener los usuarios
+        function getUsuarios() {
+            fetch('http://localhost:3000/api/usuarios')
+                .then(response => response.json())
+                .then(data => {
+                    const usuariosDiv = document.getElementById('usuarios');
+                    usuariosDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                });
+        }
+        // Función para crear un nuevo usuario
+        function crearUsuario() {
+            const usuario = { id: 3, nombre: 'Carlos' };
+            fetch('http://localhost:3000/api/usuarios', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(usuario)
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+            });
+        }
+        // Función para actualizar un usuario
+        function actualizarUsuario() {
+            const usuario = { nombre: 'Juanito' };
+            fetch('http://localhost:3000/api/usuarios/1', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(usuario)
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+            });
+        }
+        // Función para eliminar un usuario
+        function eliminarUsuario() {
+            fetch('http://localhost:3000/api/usuarios/2', {
+                method: 'DELETE'
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+            });
+        }
+    </script>
+</body>
+</html>
