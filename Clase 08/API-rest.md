@@ -38,6 +38,8 @@ const app = express();
 const PORT = 3000;
 // Middleware para poder recibir datos JSON
 app.use(express.json());
+// Middleware para hacer uso de CORS
+app.use(cors());
 // Rutas RESTful
 // Ruta GET: Retorna todos los usuarios
 app.get('/api/usuarios', (req, res) => {

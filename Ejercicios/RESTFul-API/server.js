@@ -2,6 +2,8 @@
 const express = require('express');
 //Importar Cors
 const cors = require('cors');
+//Import path
+const path = require('path')
 // Crear una instancia de Express
 const app = express();
 // Definir el puerto en el que se ejecutará el servidor
@@ -13,6 +15,9 @@ app.use(express.json());
 
 app.use(cors());
 
+app.get('/', (req,res) =>{
+    res.sendFile(path.join(__dirname,'index.html'))
+})
 
 app.get('/api/usuarios', (req, res) => {
     const usuarios = [
