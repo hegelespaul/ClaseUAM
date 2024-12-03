@@ -1,0 +1,99 @@
+/* Estilo del body: centrado y organizado en columna */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    height: 100vh;
+    background-color: #f4f4f9; /* Fondo claro para un aspecto limpio */
+}
+
+/* Estilo para el encabezado */
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #333; /* Color oscuro para el título */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Estilo para el mapa */
+#mapa {
+    height: 60vh;
+    width: 80vw; /* Aumentado el ancho para un mapa más grande */
+    margin-bottom: 5%; /* Menor espacio debajo */
+    border-radius: 10px; /* Bordes redondeados para el mapa */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+}
+
+/* Estilo para el contenido de los popups */
+.leaflet-popup-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 15px;
+    background-color: #fff; /* Fondo blanco para los popups */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    max-width: 250px; /* Limitar el ancho del popup */
+}
+
+/* Títulos dentro del popup */
+.leaflet-popup-content > h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #444; /* Color gris oscuro para el título */
+    text-align: center;
+}
+
+/* Ocultar la atribución de Leaflet */
+.leaflet-control-attribution {
+    display: none;
+}
+
+/* Mejora del estilo de los marcadores al interactuar con ellos */
+.leaflet-interactive {
+    transition: 0.5s ease; /* Transición suave en la interacción */
+    fill-opacity: 0.3;
+}
+
+/* Cambio de opacidad al pasar el ratón sobre los elementos interactivos */
+.leaflet-interactive:hover {
+    fill-opacity: 0.7; /* Aumento de la opacidad al pasar el ratón */
+    transition: 0.5s ease; /* Transición suave */
+}
+
+/* Estilo para el marcador cuando el ratón pasa sobre él */
+.leaflet-marker-pane {
+    transition: transform 0.3s ease, width 0.3s ease; /* Transición suave */
+}
+
+/* Agrandar el marcador al pasar el ratón por encima */
+.leaflet-marker-pane:hover {
+    filter: hue-rotate(9deg); /* Añadir un filtro de cambio de color */
+}
+
+/* Estilo de los controles de mapa (botones y controles) */
+.leaflet-control-zoom {
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro y semi-transparente */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 5px;
+}
+
+.leaflet-control-zoom-in, .leaflet-control-zoom-out {
+    font-size: 18px; /* Aumentar el tamaño de los botones */
+    color: white; /* Color blanco para los botones */
+}
+
+.leaflet-control-zoom-in:hover, .leaflet-control-zoom-out:hover {
+    background-color: #333; /* Color más oscuro al hacer hover */
+}
+
+/* Estilo para el control de atribución si lo necesitas */
+.leaflet-control-attribution {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro para la atribución */
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 12px;
+    color: white;
+}

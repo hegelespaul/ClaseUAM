@@ -14,6 +14,8 @@ app.use(cors());
 // Servir archivos estáticos (como CSS, JS e imágenes) desde la carpeta 'public'
 app.use(express.static(path.join(__dirname, 'public')));
 
+//////////////////////////////////////// RUTAS DE PÁGINAS WEB //////////////////////////////
+
 // Ruta para servir el archivo HTML principal (index.html)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
@@ -23,6 +25,13 @@ app.get('/', (req, res) => {
 app.get('/formulario', (req, res) => {
     res.sendFile(path.join(__dirname, 'formulario.html'));
 });
+
+// Ruta para servir el archivo HTML del Mapa (Mapa.html)
+app.get('/mapa', (req, res) => {
+    res.sendFile(path.join(__dirname, 'mapa.html'));
+});
+
+/////////////////////////////////////// PROCESOS ///////////////////////////////////////////
 
 // Endpoint para obtener el archivo GeoJSON
 app.get('/geojson', (req, res) => {
