@@ -1,6 +1,6 @@
 const express = require('express');
 const multer = require('multer');
-const cors = require('cors')
+const cors = require('cors');
 const path = require('path');
 
 const app = express();
@@ -54,35 +54,53 @@ const upload = multer({
 
 // Crear la ruta para subir archivos
 app.post('/upload', upload.single('image'), (req, res) => {
-    try {
-      // Responder con un script que muestra un alert y redirige a la página principal
-      res.send(`
-        <html>
-          <head>
-            <script>
-              alert('¡Imagen subida con éxito!');
-              window.location.href = '/';
-            </script>
-          </head>
-          <body>
-          </body>
-        </html>
-      `);
-    } catch (err) {
-      // En caso de error, mostrar un alert con el mensaje del error y redirigir
-      res.send(`
-        <html>
-          <head>
-            <script>
-              alert('Error: ${err.message}');
-              window.location.href = '/';
-            </script>
-          </head>
-          <body>
-          </body>
-        </html>
-      `);
-    }
+  // Si no hay error de Multer, continúa con la respuesta
+  res.send(`
+    <html>
+      <head>
+        <script>
+          alert('¡Imagen subida con éxito!');
+          window.location.href = '/';
+        </script>
+      </head>
+      <body>
+      </body>
+    </html>
+  `);
+});
+
+// Middleware para manejo de errores
+app.use((err, req, res, next) => {
+  // Si el error es de Multer, puedes capturarlo aquí
+  if (err instanceof multer.MulterError) {
+    res.status(400).send(`
+      <html>
+        <head>
+          <script>
+            alert('Error en la carga del archivo: ${err.message}');
+            window.location.href = '/';
+          </script>
+        </head>
+        <body>
+        </body>
+      </html>
+    `);
+  } else if (err) {
+    res.status(500).send(`
+      <html>
+        <head>
+          <script>
+            alert('Error desconocido: ${err.message}');
+            window.location.href = '/';
+          </script>
+        </head>
+        <body>
+        </body>
+      </html>
+    `);
+  } else {
+    next();
+  }
 });
 
 // Servir los archivos subidos desde la carpeta 'uploads'
