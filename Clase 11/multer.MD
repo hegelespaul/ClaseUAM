@@ -1,6 +1,3 @@
-¡Aquí tienes todo el contenido en formato **Markdown**!
-
-```markdown
 # Subida de Imágenes con Multer
 
 Multer es un middleware para **Node.js** utilizado para manejar **uploads de archivos** (especialmente en formularios HTML) de manera eficiente. A continuación, explicamos cómo funciona la subida de imágenes utilizando Multer y cómo puedes configurarlo en tu aplicación.
